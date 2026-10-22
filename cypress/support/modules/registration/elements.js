@@ -2,6 +2,7 @@ export const registrationElements = {
   signupName: '[data-qa="signup-name"]',
   signupEmail: '[data-qa="signup-email"]',
   signupButton: '[data-qa="signup-button"]',
+  existingEmailError: 'form[action*="signup"] p',
 
   genderMrs: '#id_gender2',
   password: '[data-qa="password"]',

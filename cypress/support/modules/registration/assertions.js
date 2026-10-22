@@ -12,5 +12,11 @@ export const registrationAssertions = {
   },
   validarContaCriada() {
     cy.get(el.accountCreated).should('be.visible')
+  },
+  validarEmailJaExistente() {
+  cy.get(el.existingEmailError)
+    .should('exist')
+    .should('be.visible')
+    .should('contain', 'Email Address already exist!')
   }
 }
