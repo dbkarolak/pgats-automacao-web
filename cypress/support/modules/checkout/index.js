@@ -18,9 +18,9 @@ export const checkoutElements = {
 
 export const checkoutActions = {
     adicionarProdutosAoCarrinho() {
-        cy.get(checkoutElements.firstProduct).click()
+        cy.get(checkoutElements.firstProduct).click({ force: true }) // passando o parametro force para evitar erros de duplicidade do site
         cy.get(checkoutElements.closeModal).click()
-        cy.get(checkoutElements.secondProduct).click()
+        cy.get(checkoutElements.secondProduct).click({ force: true }) // passando o parametro force para evitar erros de duplicidade do site
         cy.get(checkoutElements.closeModal).click()
     },
 
