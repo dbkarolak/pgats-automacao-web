@@ -7,4 +7,11 @@ describe('Produtos', () => {
         productActions.abrirPrimeiroProduto()
         productAssertions.validarDetalhesProduto()
     })
+    
+    it('Pesquisar produto com sucesso', () => {
+        productActions.acessarProdutos()
+        productAssertions.validarPaginaProdutos()
+        productActions.pesquisarProduto('Tshirt')
+        productAssertions.validarResultadoPesquisa('Tshirt')
+    })
 })
