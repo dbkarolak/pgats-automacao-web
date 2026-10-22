@@ -9,9 +9,16 @@ describe('Autenticação de usuários', () => {
     loginActions.preencherLogin(usuario)
     loginAssertions.validarUsuarioLogado(usuario)
   })
-  
+
   it('Impedir login de usuário com email ou senha incorretos', () => {
     loginActions.preencherLoginComSenhaIncorreta(emailIncorreto,senhaIncorreta)
     loginAssertions.validarLoginIncorreto()
+  })
+
+  it('Efetuar logout do usuário', () => {
+    loginActions.preencherLogin(usuario)
+    loginAssertions.validarUsuarioLogado(usuario)
+    loginActions.efetuarLogout()
+    loginAssertions.validarLogoutRealizado()
   })
 })
