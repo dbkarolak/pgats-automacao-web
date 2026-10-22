@@ -19,5 +19,6 @@ export const registrationElements = {
   mobileNumber: '[data-qa="mobile_number"]',
 
   createAccountButton: '[data-qa="create-account"]',
+  accountCreated: '[data-qa="account-created"]',
   continueButton: '[data-qa="continue-button"]'
 }
