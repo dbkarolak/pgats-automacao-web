@@ -1,14 +1,11 @@
 import { criarUsuario } from '../../support/data/user.data'
-import { registrationActions } from '../../support/modules/registration/actions'
-import { registrationAssertions } from '../../support/modules/registration/assertions'
+import { registrationActions, registrationAssertions } from '../../support/modules/registration'
+import { iniciarCadastro } from '../../support/helpers/registration.helper'
 
-describe('Cadastro de usuário', () => {
+describe('Cadastro de usuários', () => {
     const usuario = criarUsuario()
     it('Cadastrar um novo usuario com sucesso', () => {
-        cy.visit('/')
-        cy.get('a[href*="login"]').click()
-        registrationAssertions.validarPaginaCadastro()
-        registrationActions.preencherSignup(usuario)
+        iniciarCadastro(usuario)
         registrationAssertions.validarFormularioDadosConta()
         registrationActions.preencherDadosConta(usuario)
         registrationActions.preencherDadosEndereco(usuario)
@@ -17,10 +14,7 @@ describe('Cadastro de usuário', () => {
         registrationActions.continuar()
     })
     it('Tentar cadastrar um usuario com email já cadastrado', () => {
-        cy.visit('/')
-        cy.get('a[href*="login"]').click()
-        registrationAssertions.validarPaginaCadastro()
-        registrationActions.preencherSignup(usuario)
+        iniciarCadastro(usuario)
         registrationAssertions.validarEmailJaExistente()
     })
 })
